@@ -22,3 +22,5 @@ Route::get('/', function () {
 Route::get('/send', [TesrController::class , 'sendMessages']);
 
 Route::get('/send2', [TesrController::class , 'sendMessages2']);
+
+Route::get('/whatsapp-webhook', [TesrController::class , 'verifyWebhook']);

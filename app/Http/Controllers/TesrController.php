@@ -80,4 +80,34 @@ catch (Exception $e) {
 
 }
     }
+    public function verifyWebhook(Request $request){
+try{
+    $verifytoken ='creativetagwhatsapp1995!';
+    $query = $request->query();
+    $mode = $query['hub_mode'];
+    $token = $query['hub_verify_token'];
+    $challenge = $query['cgallenge'];
+
+  if ($mode && $token){
+      if ($mode =='subscribe' && $token == $verifytoken){
+
+    return response($challenge,200)->header('content-Type','text/plain');
+  }
+}
+
+
+}
+catch(Exception $e){
+  return response()->json([
+    'success'=> false,
+    'error' => $e->getMessage(),
+  ],500);
+
+
+
+}
+
+
+
+    }
 }
