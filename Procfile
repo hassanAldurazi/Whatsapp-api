@@ -1,0 +1,1 @@
+web: venfor/bin/heroku-php-apache2 public/
